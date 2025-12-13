@@ -1,1 +1,81 @@
 
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 5rem 1rem;
+  background: linear-gradient(180deg, #020617, #020617cc),
+              url("https://images.unsplash.com/photo-1531297484001-80022131f5a1");
+  background-size: cover;
+}
+
+.badge {
+  display: inline-block;
+  background: #1e293b;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+.subtitle {
+  max-width: 600px;
+  margin: auto;
+  color: #94a3b8;
+}
+
+.hero-buttons {
+  margin-top: 2rem;
+}
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.primary {
+  background: #38bdf8;
+  color: #020617;
+}
+
+.secondary {
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+}
+
+/* SECTIONS */
+section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 4rem 1rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #0f172a;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.price {
+  color: #22c55e;
+  font-weight: bold;
+}
