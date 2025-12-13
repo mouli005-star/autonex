@@ -1,35 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Autonex</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+
+    body {
       height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #0f172a;
+      overflow: hidden;
+      background: radial-gradient(
+        circle at top,
+        #0f172a,
+        #020617
+      );
       color: #e5e7eb;
-      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
     }
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
+
+    /* Floating animation */
+    @keyframes floatDown {
+      0% {
+        transform: translateY(-120px);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(120px);
+        opacity: 0;
+      }
     }
+
+    .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
     p {
-      font-size: 1.1rem;
-      color: #9ca3af;
+      margin-top: 12px;
+      font-size: 1.15rem;
+      color: #94a3b8;
+    }
+
+    /* Floating "Coming Soon" */
+    .floating-text {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.95rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #38bdf8;
+      animation: floatDown 6s linear infinite;
+      opacity: 0;
+    }
+
+    /* Subtle background glow */
+    .glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #38bdf820, transparent 60%);
+      filter: blur(60px);
+      z-index: 1;
     }
   </style>
 </head>
+
 <body>
-  <div>
+  <div class="glow"></div>
+
+  <div class="floating-text">Coming Soon</div>
+
+  <div class="container">
     <h1>Autonex</h1>
-    <p>AI workflows & agents.<br>Live demos coming soon.</p>
+    <p>AI workflows & agents.<br />Live demos in progress.</p>
   </div>
 </body>
 </html>
+
