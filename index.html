@@ -16,23 +16,23 @@
 body {
   height: 100vh;
   overflow: hidden;
-  background: linear-gradient(
-    120deg,
-    #fef3c7,
-    #fde68a,
-    #facc15
+  background: radial-gradient(
+    circle at top,
+    #facc15,
+    #a16207,
+    #422006
   );
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #111827;
+  color: #fff;
   text-align: center;
 }
 
 /* Center Content */
 .container {
   position: relative;
-  z-index: 5;
+  z-index: 3;
 }
 
 h1 {
@@ -44,92 +44,81 @@ h1 {
 p {
   margin-top: 12px;
   font-size: 1.1rem;
-  color: #374151;
+  color: #fde68a;
 }
 
-/* WIND ANIMATION */
-@keyframes wind {
+/* Bubble animation */
+@keyframes moveRight {
   from {
-    transform: translateX(-30vw);
+    transform: translateX(-150px);
     opacity: 0;
   }
   10% {
-    opacity: 0.6;
+    opacity: 0.8;
   }
   to {
-    transform: translateX(130vw);
+    transform: translateX(120vw);
     opacity: 0;
   }
 }
 
-/* BUBBLES */
 .bubble {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #ffffff, #fbbf24);
-  opacity: 0.35;
-  animation: wind linear infinite;
+  background: radial-gradient(circle at 30% 30%, #fff7ed, #fbbf24);
+  opacity: 0.4;
+  animation: moveRight linear infinite;
 }
 
-/* Multiple bubbles with different speeds */
-.bubble:nth-child(1) { width: 12px; height: 12px; top: 10%; animation-duration: 8s; }
-.bubble:nth-child(2) { width: 20px; height: 20px; top: 20%; animation-duration: 10s; }
-.bubble:nth-child(3) { width: 8px;  height: 8px;  top: 30%; animation-duration: 6s; }
-.bubble:nth-child(4) { width: 30px; height: 30px; top: 40%; animation-duration: 14s; }
-.bubble:nth-child(5) { width: 16px; height: 16px; top: 50%; animation-duration: 9s; }
-.bubble:nth-child(6) { width: 26px; height: 26px; top: 60%; animation-duration: 12s; }
-.bubble:nth-child(7) { width: 10px; height: 10px; top: 70%; animation-duration: 7s; }
-.bubble:nth-child(8) { width: 34px; height: 34px; top: 80%; animation-duration: 16s; }
-.bubble:nth-child(9) { width: 18px; height: 18px; top: 25%; animation-duration: 11s; }
-.bubble:nth-child(10){ width: 24px; height: 24px; top: 65%; animation-duration: 13s; }
+/* Bubble sizes */
+.bubble:nth-child(1) { width: 18px; height: 18px; top: 20%; animation-duration: 10s; }
+.bubble:nth-child(2) { width: 28px; height: 28px; top: 40%; animation-duration: 14s; }
+.bubble:nth-child(3) { width: 14px; height: 14px; top: 60%; animation-duration: 9s; }
+.bubble:nth-child(4) { width: 22px; height: 22px; top: 75%; animation-duration: 12s; }
+.bubble:nth-child(5) { width: 35px; height: 35px; top: 30%; animation-duration: 18s; }
 
-/* COMING SOON – FULL WIDTH */
-@keyframes flyText {
+/* Floating Coming Soon */
+@keyframes floatText {
   from {
-    transform: translateX(-50vw);
+    transform: translateX(-200px);
     opacity: 0;
   }
-  10% {
+  15% {
     opacity: 1;
   }
   to {
-    transform: translateX(150vw);
+    transform: translateX(120vw);
     opacity: 0;
   }
 }
 
 .coming-soon {
   position: absolute;
-  top: 15%;
-  left: 0;
+  top: 10%;
+  left: -200px;
   font-size: 0.9rem;
   letter-spacing: 6px;
   text-transform: uppercase;
-  color: #78350f;
-  animation: flyText 9s linear infinite;
-  z-index: 3;
+  color: #fff7ed;
+  animation: floatText 12s linear infinite;
+  z-index: 2;
 }
 </style>
 </head>
 
 <body>
 
-<!-- WIND BUBBLES -->
-<div class="bubble"></div>
-<div class="bubble"></div>
-<div class="bubble"></div>
-<div class="bubble"></div>
-<div class="bubble"></div>
+<!-- Bubbles -->
 <div class="bubble"></div>
 <div class="bubble"></div>
 <div class="bubble"></div>
 <div class="bubble"></div>
 <div class="bubble"></div>
 
-<!-- MOVING TEXT -->
-<div class="coming-soon">COMING SOON</div>
+<!-- Floating text -->
+<div class="coming-soon">Coming Soon</div>
 
-<!-- CENTER CONTENT -->
+<!-- Center content -->
 <div class="container">
   <h1>Autonex</h1>
   <p>AI workflows & agents<br>Live demos in progress</p>
