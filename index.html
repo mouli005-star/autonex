@@ -1,31 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Autonex</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<title>Autonex</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(
+    circle at top,
+    #facc15,
+    #a16207,
+    #422006
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+
+/* Center Content */
+.container {
+  position: relative;
+  z-index: 3;
+}
+
+h1 {
+  font-size: 3.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+p {
+  margin-top: 12px;
+  font-size: 1.1rem;
+  color: #fde68a;
+}
+
+/* Bubble animation */
+@keyframes moveRight {
+  from {
+    transform: translateX(-150px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  to {
+    transform: translateX(120vw);
+    opacity: 0;
+  }
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff7ed, #fbbf24);
+  opacity: 0.4;
+  animation: moveRight linear infinite;
+}
+
+/* Bubble sizes */
+.bubble:nth-child(1) { width: 18px; height: 18px; top: 20%; animation-duration: 10s; }
+.bubble:nth-child(2) { width: 28px; height: 28px; top: 40%; animation-duration: 14s; }
+.bubble:nth-child(3) { width: 14px; height: 14px; top: 60%; animation-duration: 9s; }
+.bubble:nth-child(4) { width: 22px; height: 22px; top: 75%; animation-duration: 12s; }
+.bubble:nth-child(5) { width: 35px; height: 35px; top: 30%; animation-duration: 18s; }
+
+/* Floating Coming Soon */
+@keyframes floatText {
+  from {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(120vw);
+    opacity: 0;
+  }
+}
+
+.coming-soon {
+  position: absolute;
+  top: 10%;
+  left: -200px;
+  font-size: 0.9rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #fff7ed;
+  animation: floatText 12s linear infinite;
+  z-index: 2;
+}
+</style>
 </head>
+
 <body>
 
-<header class="hero">
-  <p class="badge">Building AI the Right Way</p>
-  <h1>AI Agents for Real Businesses</h1>
-  <p class="subtitle">
-    I build AI agents & automation workflows for healthcare, retail,
-    service businesses, and startups.
-  </p>
+<!-- Bubbles -->
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="bubble"></div>
 
-  <div class="hero-buttons">
-    <a href="#agents" class="btn primary">Explore AI Agents</a>
-    <a href="#contact" class="btn secondary">Work With Me</a>
-  </div>
-</header>
+<!-- Floating text -->
+<div class="coming-soon">Coming Soon</div>
 
-<section id="categories"></section>
-<section id="agents"></section>
-<section id="contact"></section>
+<!-- Center content -->
+<div class="container">
+  <h1>Autonex</h1>
+  <p>AI workflows & agents<br>Live demos in progress</p>
+</div>
 
-<script src="script.js"></script>
 </body>
 </html>
