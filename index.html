@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Autonex</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
 * {
@@ -14,8 +14,8 @@
 }
 
 body {
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
   background: radial-gradient(
     circle at top,
     #facc15,
@@ -32,7 +32,7 @@ body {
 /* Center Content */
 .container {
   position: relative;
-  z-index: 3;
+  z-index: 2;
 }
 
 h1 {
@@ -70,7 +70,6 @@ p {
   animation: moveRight linear infinite;
 }
 
-/* Bubble sizes */
 .bubble:nth-child(1) { width: 18px; height: 18px; top: 20%; animation-duration: 10s; }
 .bubble:nth-child(2) { width: 28px; height: 28px; top: 40%; animation-duration: 14s; }
 .bubble:nth-child(3) { width: 14px; height: 14px; top: 60%; animation-duration: 9s; }
@@ -101,24 +100,26 @@ p {
   text-transform: uppercase;
   color: #fff7ed;
   animation: floatText 12s linear infinite;
-  z-index: 2;
+  z-index: 1;
 }
+</style>
 
-/* ============================= */
-/* Floating Chat Assistant Frame */
-/* ============================= */
+<!-- n8n Chat theme customization -->
+<style>
+:root {
+  --chat--color--primary: #fbbf24;
+  --chat--color--primary-shade-50: #f59e0b;
+  --chat--color--secondary: #111827;
 
-#chat-frame {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 360px;
-  height: 520px;
-  border: none;
-  border-radius: 18px;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.45);
-  z-index: 9999;
-  background: #111;
+  --chat--toggle--size: 64px;
+  --chat--window--width: 380px;
+  --chat--window--height: 560px;
+
+  --chat--message--bot--background: #ffffff;
+  --chat--message--bot--color: #111827;
+
+  --chat--message--user--background: #fbbf24;
+  --chat--message--user--color: #111827;
 }
 </style>
 </head>
@@ -141,11 +142,29 @@ p {
   <p>AI workflows & agents<br>Live demos in progress</p>
 </div>
 
-<!-- ============================= -->
-<!-- n8n Chat Assistant (iframe)   -->
-<!-- ============================= -->
+<!-- n8n Chat mount point -->
+<div id="n8n-chat"></div>
 
-<iframe
-  id="chat-frame"
-  src="https://n8n.n8ncloud.live/webhook/8e38fc4b-1c74-
+<!-- n8n Chat Widget (Official CDN) -->
+<link
+  href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css"
+  rel="stylesheet"
+/>
 
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+  createChat({
+    webhookUrl: 'https://n8n.n8ncloud.live/webhook/8e38fc4b-1c74-48e1-9a72-41dc0524e934',
+    target: '#n8n-chat',
+    mode: 'window',
+    showWelcomeScreen: false,
+    initialMessages: [
+      'Hi there 👋',
+      'I’m the Autonex Assistant. How can I help you today?'
+    ],
+  });
+</script>
+
+</body>
+</html>
