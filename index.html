@@ -107,21 +107,56 @@ p {
 <!-- n8n Chat theme customization -->
 <style>
 :root {
+  /* 🎨 Brand Colors (Autonex Gold Theme) */
   --chat--color--primary: #fbbf24;
   --chat--color--primary-shade-50: #f59e0b;
+  --chat--color--primary-shade-100: #d97706;
+
   --chat--color--secondary: #111827;
 
-  --chat--toggle--size: 64px;
-  --chat--window--width: 380px;
-  --chat--window--height: 560px;
+  --chat--color-white: #ffffff;
+  --chat--color-light: #f9fafb;
+  --chat--color-medium: #e5e7eb;
+  --chat--color-dark: #0f172a;
+
+  /* 📐 Spacing & shape */
+  --chat--spacing: 1.1rem;
+  --chat--border-radius: 14px;
+  --chat--transition-duration: 0.25s;
+
+  /* 🪟 Window size */
+  --chat--window--width: 420px;
+  --chat--window--height: 620px;
+
+  /* 🧠 Header */
+  --chat--header--background: linear-gradient(135deg, #0f172a, #1f2937);
+  --chat--header--color: #ffffff;
+  --chat--header--padding: 1.25rem;
+  --chat--heading--font-size: 1.25rem;
+  --chat--subtitle--font-size: 0.9rem;
+
+  /* 💬 Messages */
+  --chat--message--font-size: 0.95rem;
+  --chat--message--line-height: 1.6;
 
   --chat--message--bot--background: #ffffff;
-  --chat--message--bot--color: #111827;
+  --chat--message--bot--color: #0f172a;
 
   --chat--message--user--background: #fbbf24;
   --chat--message--user--color: #111827;
+
+  /* ✍️ Input */
+  --chat--textarea--height: 56px;
+
+  /* 🔘 Toggle button */
+  --chat--toggle--size: 64px;
+  --chat--toggle--background: #fbbf24;
+  --chat--toggle--hover--background: #f59e0b;
+  --chat--toggle--active--background: #d97706;
+  --chat--toggle--color: #111827;
 }
 </style>
+
 </head>
 
 <body>
@@ -153,17 +188,31 @@ p {
 
 <script type="module">
   import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+createChat({
+  webhookUrl: 'https://n8n.n8ncloud.live/webhook/8e38fc4b-1c74-48e1-9a72-41dc0524e934',
+  target: '#n8n-chat',
+  mode: 'window',
 
-  createChat({
-    webhookUrl: 'https://n8n.n8ncloud.live/webhook/8e38fc4b-1c74-48e1-9a72-41dc0524e934',
-    target: '#n8n-chat',
-    mode: 'window',
-    showWelcomeScreen: false,
-    initialMessages: [
-      'Hi there 👋',
-      'I’m the Autonex Assistant. How can I help you today?'
-    ],
-  });
+  allowFileUploads: true,
+  allowedFilesMimeTypes: 'image/*,application/pdf',
+
+  showWelcomeScreen: false,
+initialMessages: [
+  '👋 Welcome to Autonex',
+  'I can help you explore AI workflows, agents, and live demos.'
+]
+,
+
+  i18n: {
+    en: {
+      title: 'Autonex Assistant',
+      subtitle: 'AI workflows & agents',
+      footer: ''
+    }
+  }
+});
+
+
 </script>
 
 </body>
