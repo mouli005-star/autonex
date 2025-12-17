@@ -103,6 +103,23 @@ p {
   animation: floatText 12s linear infinite;
   z-index: 2;
 }
+
+/* ============================= */
+/* Floating Chat Assistant Frame */
+/* ============================= */
+
+#chat-frame {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 360px;
+  height: 520px;
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.45);
+  z-index: 9999;
+  background: #111;
+}
 </style>
 </head>
 
@@ -124,5 +141,11 @@ p {
   <p>AI workflows & agents<br>Live demos in progress</p>
 </div>
 
-</body>
-</html>
+<!-- ============================= -->
+<!-- n8n Chat Assistant (iframe)   -->
+<!-- ============================= -->
+
+<iframe
+  id="chat-frame"
+  src="https://n8n.n8ncloud.live/webhook/8e38fc4b-1c74-
+
